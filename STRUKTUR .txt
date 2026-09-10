@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Struktur Kelas 8.1</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+min-height: 100vh;
+padding: 20px;
+}
+.container {
+max-width: 900px;
+margin: 0 auto;
+}
+header {
+background: white;
+padding: 30px;
+border-radius: 16px;
+text-align: center;
+box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+margin-bottom: 30px;
+}
+header h1 {
+color: #2d3748;
+font-size: 2.2rem;
+margin-bottom: 8px;
+}
+header p {
+color: #718096;
+font-size: 1.1rem;
+}
+.card {
+background: white;
+padding: 28px;
+border-radius: 16px;
+margin-bottom: 24px;
+box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+transition: transform 0.3s ease;
+}
+.card:hover {
+transform: translateY(-3px);
+}
+.card h2 {
+color: #009688;
+font-size: 1.5rem;
+margin-bottom: 20px;
+border-bottom: 2px solid #e0f2f1;
+padding-bottom: 10px;
+}
+.person {
+display: flex;
+align-items: center;
+gap: 15px;
+padding: 12px 0;
+border-bottom: 1px dashed #e2e8f0;
+}
+.person:last-child { border-bottom: none; }
+.icon {
+width: 45px; height: 45px;
+background: linear-gradient(135deg, #4facfe, #00f2fe);
+border-radius: 50%;
+display: flex; align-items: center; justify-content: center;
+color: white; font-size: 1.3rem; flex-shrink: 0;
+}
+.info h3 { color: #2d3748; font-size: 1.1rem; }
+.info span { color: #718096; font-size: 0.9rem; }
+.list-siswa { columns: 2; gap: 10px; }
+.list-siswa p {
+padding: 5px 0; color: #2d3748;
+border-bottom: 1px solid #f0f0f0;
+}
+footer {
+text-align: center; color: white;
+margin-top: 30px; opacity: 0.9; font-size: 0.95rem;
+}
+@media (max-width: 600px) {
+.list-siswa { columns: 1; }
+header h1 { font-size: 1.6rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>🏫 Struktur Kelas 8.1</h1>
+<p>Tahun Pelajaran 2025/2026</p>
+</header>
+
+<!-- Wali Kelas -->
+<div class="card">
+<h2>👩‍🏫 Wali Kelas</h2>
+<div class="person">
+<div class="icon">📚</div>
+<div class="info">
+<h3>_________________________</h3>
+<span>Wali Kelas 8.1</span>
+</div>
+</div>
+</div>
+
+<!-- Pengurus Inti -->
+<div class="card">
+<h2>📋 Pengurus Kelas</h2>
+<div class="person">
+<div class="icon">👑</div>
+<div class="info">
+<h3>_________________________</h3>
+<span>Ketua Kelas</span>
+</div>
+</div>
+<div class="person">
+<div class="icon">✍️</div>
+<div class="info">
+<h3>_________________________</h3>
+<span>Sekretaris</span>
+</div>
+</div>
+<div class="person">
+<div class="icon">💰</div>
+<div class="info">
+<h3>_________________________</h3>
+<span>Bendahara</span>
+</div>
+</div>
+</div>
+
+<!-- Seksi-Seksi -->
+<div class="card">
+<h2>🛡️ Seksi-Seksi Kelas</h2>
+<div class="person">
+<div class="icon">❤️</div>
+<div class="info">
+<h3>_________________________</h3>
+<span>Seksi Kesehatan (KBK)</span>
+</div>
+</div>
+<div class="person">
+<div class="icon">🧹</div>
+<div class="info">
+<h3>_________________________</h3>
+<span>Seksi Kebersihan</span>
+</div>
+</div>
+<div class="person">
+<div class="icon">🔒</div>
+<div class="info">
+<h3>_________________________</h3>
+<span>Seksi Keamanan</span>
+</div>
+</div>
+<div class="person">
+<div class="icon">🍎</div>
+<div class="info">
+<h3>_________________________</h3>
+<span>Seksi MBG (Makanan Bergizi & Sehat)</span>
+</div>
+</div>
+</div>
+
+<!-- Daftar Siswa — 23 Orang -->
+<div class="card">
+<h2>👥 Daftar Nama Siswa <small>(Jumlah: 23 Orang)</small></h2>
+<div class="list-siswa">
+<p>1. _________________________</p>
+<p>2. _________________________</p>
+<p>3. _________________________</p>
+<p>4. _________________________</p>
+<p>5. _________________________</p>
+<p>6. _________________________</p>
+<p>7. _________________________</p>
+<p>8. _________________________</p>
+<p>9. _________________________</p>
+<p>10. _________________________</p>
+<p>11. _________________________</p>
+<p>12. _________________________</p>
+<p>13. _________________________</p>
+<p>14. _________________________</p>
+<p>15. _________________________</p>
+<p>16. _________________________</p>
+<p>17. _________________________</p>
+<p>18. _________________________</p>
+<p>19. _________________________</p>
+<p>20. _________________________</p>
+<p>21. _________________________</p>
+<p>22. _________________________</p>
+<p>23. _________________________</p>
+</div>
+</div>
+
+<footer>
+<p>🏫 Struktur Kelas 8.1 — Semoga Kelas Kita Semakin Maju, Bersih, dan Sehat! 💪</p>
+</footer>
+</div>
+</body>
+</html>
