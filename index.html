@@ -1,203 +1,133 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Struktur Kelas 8.1</title>
-<style>
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-body {
-background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-min-height: 100vh;
-padding: 20px;
-}
-.container {
-max-width: 900px;
-margin: 0 auto;
-}
-header {
-background: white;
-padding: 30px;
-border-radius: 16px;
-text-align: center;
-box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-margin-bottom: 30px;
-}
-header h1 {
-color: #2d3748;
-font-size: 2.2rem;
-margin-bottom: 8px;
-}
-header p {
-color: #718096;
-font-size: 1.1rem;
-}
-.card {
-background: white;
-padding: 28px;
-border-radius: 16px;
-margin-bottom: 24px;
-box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-transition: transform 0.3s ease;
-}
-.card:hover {
-transform: translateY(-3px);
-}
-.card h2 {
-color: #009688;
-font-size: 1.5rem;
-margin-bottom: 20px;
-border-bottom: 2px solid #e0f2f1;
-padding-bottom: 10px;
-}
-.person {
-display: flex;
-align-items: center;
-gap: 15px;
-padding: 12px 0;
-border-bottom: 1px dashed #e2e8f0;
-}
-.person:last-child { border-bottom: none; }
-.icon {
-width: 45px; height: 45px;
-background: linear-gradient(135deg, #4facfe, #00f2fe);
-border-radius: 50%;
-display: flex; align-items: center; justify-content: center;
-color: white; font-size: 1.3rem; flex-shrink: 0;
-}
-.info h3 { color: #2d3748; font-size: 1.1rem; }
-.info span { color: #718096; font-size: 0.9rem; }
-.list-siswa { columns: 2; gap: 10px; }
-.list-siswa p {
-padding: 5px 0; color: #2d3748;
-border-bottom: 1px solid #f0f0f0;
-}
-footer {
-text-align: center; color: white;
-margin-top: 30px; opacity: 0.9; font-size: 0.95rem;
-}
-@media (max-width: 600px) {
-.list-siswa { columns: 1; }
-header h1 { font-size: 1.6rem; }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Venix — Tampilan Contoh</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        :root {
+            --bg: #0f111a;
+            --card: #1a1d2b;
+            --card2: #222639;
+            --biru: #4d8cff;
+            --ungu: #7b2ffd;
+            --teks: #e6e8f0;
+            --abu: #888ea6;
+            --hijau: #00c853;
+            --merah: #ff5252;
+            --kuning: #ffc107;
+        }
+        body { background: var(--bg); color: var(--teks); min-height: 100vh; padding-bottom: 80px; }
+        .atas { background: var(--card); padding: 15px 20px; display: flex; align-items: center; justify-content: space-between; position: sticky; top:0; z-index: 100; border-bottom: 1px solid #2b2f44; }
+        .logo { display: flex; align-items: center; gap: 10px; }
+        .logo img { width: 36px; height: 36px; border-radius: 8px; }
+        .logo h1 { font-size: 1rem; }
+        .atas-kanan { display: flex; gap: 12px; align-items: center; }
+        .negara { background: var(--card2); padding: 6px 10px; border-radius: 6px; display: flex; gap: 6px; align-items: center; font-size: 0.9rem; }
+        .saldo-kotak { background: linear-gradient(135deg, var(--biru), var(--ungu)); margin: 15px; padding: 20px; border-radius: 16px; }
+        .saldo-kotak p { font-size: 0.9rem; opacity: 0.8; }
+        .saldo-kotak .angka { font-size: 2.2rem; font-weight: bold; margin: 5px 0; }
+        .aksi-cepat { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 15px; }
+        .btn-aksi { background: var(--card); padding: 15px; border-radius: 12px; display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--teks); transition: 0.2s; }
+        .btn-aksi:hover { background: var(--card2); transform: translateY(-2px); }
+        .btn-aksi span { font-size: 1.3rem; }
+        .layanan { margin: 20px 15px; }
+        .layanan h2 { font-size: 1rem; margin-bottom: 12px; color: var(--abu); }
+        .item-layanan { background: var(--card); padding: 14px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; transition: 0.2s; }
+        .item-layanan:hover { background: var(--card2); }
+        .kiri { display: flex; align-items: center; gap: 12px; }
+        .kiri span { font-size: 1.5rem; }
+        .beli { background: var(--biru); padding: 6px 14px; border-radius: 8px; text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+        .nav-bawah { position: fixed; bottom: 0; left: 0; right: 0; background: var(--card); display: flex; justify-content: space-around; padding: 10px 0; border-top: 1px solid #2b2f44; }
+        .nav-bawah a { display: flex; flex-direction: column; align-items: center; gap: 3px; color: var(--abu); text-decoration: none; font-size: 0.75rem; }
+        .nav-bawah a.aktif { color: var(--biru); }
+        .kotak-pengumuman { background: var(--card); margin: 15px; padding: 15px; border-radius: 12px; border-left: 3px solid var(--biru); }
+        .kotak-pengumuman h3 { font-size: 0.95rem; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+        .kotak-pengumuman p { font-size: 0.9rem; line-height: 1.6; opacity: 0.9; }
+        .chat-cs { position: fixed; bottom: 90px; right: 20px; background: var(--biru); color: white; padding: 12px 20px; border-radius: 30px; text-decoration: none; font-weight: 500; box-shadow: 0 4px 15px rgba(77,140,255,0.4); }
+    </style>
 </head>
 <body>
-<div class="container">
-<header>
-<h1>🏫 Struktur Kelas 8.1</h1>
-<p>Tahun Pelajaran 2025/2026</p>
-</header>
+    <!-- Atas -->
+    <div class="atas">
+        <div class="logo">
+            <span style="font-size:1.5rem;">🦊</span>
+            <h1>Venix Virtual</h1>
+        </div>
+        <div class="atas-kanan">
+            <div class="negara">🇮🇩 ID</div>
+            <span>W</span>
+            <span>➡️</span>
+        </div>
+    </div>
 
-<!-- Wali Kelas -->
-<div class="card">
-<h2>👩‍🏫 Wali Kelas</h2>
-<div class="person">
-<div class="icon">📚</div>
-<div class="info">
-<h3>_________________________</h3>
-<span>Wali Kelas 8.1</span>
-</div>
-</div>
-</div>
+    <!-- Pengumuman -->
+    <div class="kotak-pengumuman">
+        <h3>ℹ️ Pengumuman</h3>
+        <p>Udah siang nih, jangan lupa ISTIRAHAT & MAKAN yaa ❤️<br>Garapan boleh jalan terus, tapi perut jangan ditinggal 😊</p>
+    </div>
 
-<!-- Pengurus Inti -->
-<div class="card">
-<h2>📋 Pengurus Kelas</h2>
-<div class="person">
-<div class="icon">👑</div>
-<div class="info">
-<h3>_________________________</h3>
-<span>Ketua Kelas</span>
-</div>
-</div>
-<div class="person">
-<div class="icon">✍️</div>
-<div class="info">
-<h3>_________________________</h3>
-<span>Sekretaris</span>
-</div>
-</div>
-<div class="person">
-<div class="icon">💰</div>
-<div class="info">
-<h3>_________________________</h3>
-<span>Bendahara</span>
-</div>
-</div>
-</div>
+    <!-- Saldo -->
+    <div class="saldo-kotak">
+        <p>Saldo tersedia</p>
+        <div class="angka">Rp 5.000</div>
+        <div style="display:flex; gap:30px; margin-top:10px; font-size:0.9rem; opacity:0.8;">
+            <div><p>Tertahan</p><p style="font-weight:bold;">Rp 0</p></div>
+            <div><p>Pesanan aktif</p><p style="font-weight:bold;">0</p></div>
+        </div>
+    </div>
 
-<!-- Seksi-Seksi -->
-<div class="card">
-<h2>🛡️ Seksi-Seksi Kelas</h2>
-<div class="person">
-<div class="icon">❤️</div>
-<div class="info">
-<h3>_________________________</h3>
-<span>Seksi Kesehatan (KBK)</span>
-</div>
-</div>
-<div class="person">
-<div class="icon">🧹</div>
-<div class="info">
-<h3>_________________________</h3>
-<span>Seksi Kebersihan</span>
-</div>
-</div>
-<div class="person">
-<div class="icon">🔒</div>
-<div class="info">
-<h3>_________________________</h3>
-<span>Seksi Keamanan</span>
-</div>
-</div>
-<div class="person">
-<div class="icon">🍎</div>
-<div class="info">
-<h3>_________________________</h3>
-<span>Seksi MBG (Makanan Bergizi & Sehat)</span>
-</div>
-</div>
-</div>
+    <!-- Aksi Cepat -->
+    <div class="aksi-cepat">
+        <a href="#" class="btn-aksi"><span>➕</span> Beli Nomor</a>
+        <a href="#" class="btn-aksi"><span>📱</span> Pesanan</a>
+        <a href="#" class="btn-aksi"><span>⏰</span> Riwayat</a>
+        <a href="#" class="btn-aksi"><span>⬆️</span> Top Up</a>
+        <a href="#" class="btn-aksi"><span>✉️</span> Beli Gmail</a>
+        <a href="#" class="btn-aksi"><span>📊</span> SMM Booster</a>
+    </div>
 
-<!-- Daftar Siswa — 23 Orang -->
-<div class="card">
-<h2>👥 Daftar Nama Siswa <small>(Jumlah: 23 Orang)</small></h2>
-<div class="list-siswa">
-<p>1. _________________________</p>
-<p>2. _________________________</p>
-<p>3. _________________________</p>
-<p>4. _________________________</p>
-<p>5. _________________________</p>
-<p>6. _________________________</p>
-<p>7. _________________________</p>
-<p>8. _________________________</p>
-<p>9. _________________________</p>
-<p>10. _________________________</p>
-<p>11. _________________________</p>
-<p>12. _________________________</p>
-<p>13. _________________________</p>
-<p>14. _________________________</p>
-<p>15. _________________________</p>
-<p>16. _________________________</p>
-<p>17. _________________________</p>
-<p>18. _________________________</p>
-<p>19. _________________________</p>
-<p>20. _________________________</p>
-<p>21. _________________________</p>
-<p>22. _________________________</p>
-<p>23. _________________________</p>
-</div>
-</div>
+    <!-- Layanan -->
+    <div class="layanan">
+        <h2>Layanan Tersedia</h2>
+        <div class="item-layanan">
+            <div class="kiri"><span>🔵</span> Google / Gmail</div>
+            <a href="#" class="beli">Beli</a>
+        </div>
+        <div class="item-layanan">
+            <div class="kiri"><span>🟢</span> WhatsApp</div>
+            <a href="#" class="beli">Beli</a>
+        </div>
+        <div class="item-layanan">
+            <div class="kiri"><span>🛒</span> Shopee</div>
+            <a href="#" class="beli">Beli</a>
+        </div>
+        <div class="item-layanan">
+            <div class="kiri"><span>📘</span> Facebook</div>
+            <a href="#" class="beli">Beli</a>
+        </div>
+        <div class="item-layanan">
+            <div class="kiri"><span>📷</span> Instagram</div>
+            <a href="#" class="beli">Beli</a>
+        </div>
+        <div class="item-layanan">
+            <div class="kiri"><span>✈️</span> Telegram</div>
+            <a href="#" class="beli">Beli</a>
+        </div>
+    </div>
 
-<footer>
-<p>🏫 Struktur Kelas 8.1 — Semoga Kelas Kita Semakin Maju, Bersih, dan Sehat! 💪</p>
-</footer>
-</div>
+    <!-- Chat CS -->
+    <a href="#" class="chat-cs">➤ Chat CS</a>
+
+    <!-- Nav Bawah -->
+    <div class="nav-bawah">
+        <a href="#" class="aktif"><span>🏠</span> Beranda</a>
+        <a href="#"><span>➕</span> Beli</a>
+        <a href="#"><span>📋</span> Pesanan</a>
+        <a href="#"><span>📊</span> SMM</a>
+        <a href="#"><span>⏰</span> Riwayat</a>
+        <a href="#"><span>💰</span> Saldo</a>
+    </div>
 </body>
 </html>
